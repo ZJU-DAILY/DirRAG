@@ -1,0 +1,1202 @@
+[
+  {
+    "evidence_snippet": "Kubernetes runs your workload by placing containers into Pods to run on _Nodes_.",
+    "path": "/kubernetes/concepts/architecture/nodes",
+    "query": "In Kubernetes node architecture, how does Kubernetes run your workload—where are containers placed and on what do they run?",
+    "answer": "Kubernetes runs your workload by placing containers into Pods to run on Nodes."
+  },
+  {
+    "evidence_snippet": "The name of a Node object must be a valid DNS subdomain name.",
+    "path": "/kubernetes/concepts/architecture/nodes",
+    "query": "In Kubernetes node architecture, what format requirement must the name of a Node object satisfy?",
+    "answer": "valid DNS subdomain name"
+  },
+  {
+    "evidence_snippet": "When the kubelet flag `--register-node` is true (the default), the kubelet will attempt to register itself with the API server.",
+    "path": "/kubernetes/concepts/architecture/nodes",
+    "query": "In Kubernetes node architecture, which kubelet flag, when set to true, causes the kubelet to attempt to register itself with the API server?",
+    "answer": "`--register-node`"
+  },
+  {
+    "evidence_snippet": "Marking a node as unschedulable prevents the scheduler from placing new pods onto that Node but does not affect existing Pods on the Node.",
+    "path": "/kubernetes/concepts/architecture/nodes",
+    "query": "In Kubernetes node architecture, what is the effect of marking a node as unschedulable on existing Pods and new Pod placement?",
+    "answer": "It prevents the scheduler from placing new pods onto that Node but does not affect existing Pods on the Node."
+  },
+  {
+    "evidence_snippet": "By default, the node controller checks the state of each node every 5 seconds.",
+    "path": "/kubernetes/concepts/architecture/nodes",
+    "query": "In Kubernetes node architecture, what is the default interval at which the node controller checks the state of each node?",
+    "answer": "every 5 seconds"
+  },
+  {
+    "evidence_snippet": "Every cluster needs at least one worker node in order to run Pods.",
+    "path": "/kubernetes/concepts/architecture/_index",
+    "query": "In Kubernetes cluster architecture, what is the minimum number of worker nodes a cluster needs to run Pods?",
+    "answer": "at least one"
+  },
+  {
+    "evidence_snippet": "Because these are providing cluster-level features, namespaced resources for addons belong within the `kube-system` namespace.",
+    "path": "/kubernetes/concepts/architecture/_index",
+    "query": "In Kubernetes cluster architecture, which namespace do namespaced resources for cluster addons belong to?",
+    "answer": "`kube-system`"
+  },
+  {
+    "evidence_snippet": "If you are running Kubernetes on your own premises, or in a learning environment inside your own PC, the cluster does not have a cloud controller manager.",
+    "path": "/kubernetes/concepts/architecture/_index",
+    "query": "In Kubernetes cluster architecture, does an on-premises or local learning environment cluster have a cloud controller manager?",
+    "answer": "No"
+  },
+  {
+    "evidence_snippet": "Node components run on every node, maintaining running pods and providing the Kubernetes runtime environment.",
+    "path": "/kubernetes/concepts/architecture/_index",
+    "query": "In Kubernetes cluster architecture, what components run on every node to maintain pods and provide the runtime environment?",
+    "answer": "Node components"
+  },
+  {
+    "evidence_snippet": "Traditional deployment : Control plane components run directly on dedicated machines or VMs, often managed as systemd services.",
+    "path": "/kubernetes/concepts/architecture/_index",
+    "query": "In Kubernetes traditional deployment architecture, how are control plane components typically managed when running on dedicated machines or VMs?",
+    "answer": "often managed as systemd services"
+  },{
+    "evidence_snippet": "You can also run the cloud controller manager as a Kubernetes addon rather than as part of the control plane.",
+    "path": "/kubernetes/concepts/architecture/cloud-controller",
+    "query": "In Kubernetes cloud controller manager architecture, can the cloud controller manager be run as a Kubernetes addon instead of being part of the control plane?",
+    "answer": "Yes"
+  },
+  {
+    "evidence_snippet": "The cloud-controller-manager is structured using a plugin mechanism that allows different cloud providers to integrate their platforms with Kubernetes.",
+    "path": "/kubernetes/concepts/architecture/cloud-controller",
+    "query": "In Kubernetes cloud controller manager architecture, what mechanism is the cloud-controller-manager built with to enable different cloud providers to integrate their platforms with Kubernetes?",
+    "answer": "a plugin mechanism"
+  },
+  {
+    "evidence_snippet": "The node controller is responsible for updating Node objects when new servers are created in your cloud infrastructure.",
+    "path": "/kubernetes/concepts/architecture/cloud-controller",
+    "query": "Within the Kubernetes cloud controller manager, which controller is responsible for updating Node objects when new servers are created in the cloud infrastructure?",
+    "answer": "The node controller"
+  },
+  {
+    "evidence_snippet": "The route controller listens to Node object creation and configures routes appropriately. It requires Get access to Node objects.",
+    "path": "/kubernetes/concepts/architecture/cloud-controller",
+    "query": "In Kubernetes cloud controller architecture, what level of access to Node objects does the route controller require to configure routes appropriately?",
+    "answer": "Get access"
+  },
+  {
+    "evidence_snippet": "The implementation of the core of the cloud controller manager requires access to create Event objects, and to ensure secure operation, it requires access to create ServiceAccounts.",
+    "path": "/kubernetes/concepts/architecture/cloud-controller",
+    "query": "In Kubernetes cloud controller manager architecture, does the core implementation require access to create ServiceAccounts for secure operation?",
+    "answer": "Yes"
+  },
+  {
+    "evidence_snippet": "Cross-namespace owner references are disallowed by design. Namespaced dependents can specify cluster-scoped or namespaced owners. A namespaced owner must exist in the same namespace as the dependent.",
+    "path": "/kubernetes/concepts/architecture/garbage-collection",
+    "query": "In Kubernetes garbage collection architecture, are cross-namespace owner references between objects allowed or disallowed by design?",
+    "answer": "Yes"
+  },
+  {
+    "evidence_snippet": "The kubelet performs garbage collection on unused images every five minutes and on unused containers every minute. You should avoid using external garbage collection tools, as these can break the kubelet behavior and remove containers that should exist.",
+    "path": "/kubernetes/concepts/architecture/garbage-collection",
+    "query": "In Kubernetes garbage collection, how frequently does the kubelet perform garbage collection on unused images?",
+    "answer": "every five minutes"
+  },
+  {
+    "evidence_snippet": "In foreground cascading deletion, the owner object you're deleting first enters a *deletion in progress* state. In this state, the following happens to the owner object: The Kubernetes API server sets the object's `metadata.deletionTimestamp` field to the time the object was marked for deletion.",
+    "path": "/kubernetes/concepts/architecture/garbage-collection",
+    "query": "In Kubernetes foreground cascading deletion (garbage collection), what state does the owner object enter first during the deletion process?",
+    "answer": "*deletion in progress* state"
+  },
+  {
+    "evidence_snippet": "When Kubernetes deletes an owner object, the dependents left behind are called *orphan* objects. By default, Kubernetes deletes dependent objects. To learn how to override this behaviour, see Delete owner objects and orphan dependents.",
+    "path": "/kubernetes/concepts/architecture/garbage-collection",
+    "query": "In Kubernetes garbage collection, what is the term for dependent objects that are left behind after their owner object is deleted?",
+    "answer": "*orphan* objects"
+  },
+  {
+    "evidence_snippet": "Additionally, containers owned by pods that have been deleted are removed once they are older than `MinAge`. The kubelet only garbage collects the containers it manages.",
+    "path": "/kubernetes/concepts/architecture/garbage-collection",
+    "query": "In Kubernetes garbage collection architecture, does the kubelet garbage collect all containers or only the containers that it manages?",
+    "answer": "Yes"
+  },{
+    "evidence_snippet": "In Kubernetes, the lease concept is represented by Lease objects in the `coordination.k8s.io` API Group, which are used for system-critical capabilities such as node heartbeats and component-level leader election.",
+    "path": "/kubernetes/concepts/architecture/leases",
+    "query": "In Kubernetes lease architecture, in which API Group are Lease objects defined to represent the lease concept?",
+    "answer": "`coordination.k8s.io`"
+  },
+  {
+    "evidence_snippet": "For every `Node` , there is a `Lease` object with a matching name in the `kube-node-lease` namespace.",
+    "path": "/kubernetes/concepts/architecture/leases",
+    "query": "In Kubernetes lease architecture, in which namespace does the Lease object corresponding to each Node reside?",
+    "answer": "`kube-node-lease`"
+  },
+  {
+    "evidence_snippet": "Under the hood, every kubelet heartbeat is an update request to this `Lease` object, updating the `spec.renewTime` field for the Lease.",
+    "path": "/kubernetes/concepts/architecture/leases",
+    "query": "In Kubernetes lease architecture, which field of the Lease object is updated during each kubelet heartbeat?",
+    "answer": "`spec.renewTime`"
+  },
+  {
+    "evidence_snippet": "Starting in Kubernetes v1.26, each `kube-apiserver` uses the Lease API to publish its identity to the rest of the system.",
+    "path": "/kubernetes/concepts/architecture/leases",
+    "query": "In Kubernetes lease architecture, from which version does each kube-apiserver start using the Lease API to publish its identity?",
+    "answer": "v1.26"
+  },
+  {
+    "evidence_snippet": "Expired leases from kube-apiservers that no longer exist are garbage collected by new kube-apiservers after 1 hour.",
+    "path": "/kubernetes/concepts/architecture/leases",
+    "query": "In Kubernetes lease architecture, how long after expiration are stale kube-apiserver leases garbage collected by new kube-apiservers?",
+    "answer": "1 hour"
+  },
+  {
+    "evidence_snippet": "Kubernetes captures logs from each container in a running Pod.",
+    "path": "/kubernetes/concepts/cluster-administration/logging",
+    "query": "In Kubernetes cluster logging administration, does Kubernetes capture logs from each individual container within a running Pod?",
+    "answer": "Yes"
+  },
+  {
+    "evidence_snippet": "You can configure two kubelet configuration settings, `containerLogMaxSize` (default 10Mi) and `containerLogMaxFiles` (default 5), using the kubelet configuration file.",
+    "path": "/kubernetes/concepts/cluster-administration/logging",
+    "query": "In Kubernetes cluster logging administration, what is the default value of the kubelet `containerLogMaxSize` configuration setting?",
+    "answer": "10Mi"
+  },
+  {
+    "evidence_snippet": "By default, if a container restarts, the kubelet keeps one terminated container with its logs. If a pod is evicted from the node, all corresponding containers are also evicted, along with their logs.",
+    "path": "/kubernetes/concepts/cluster-administration/logging",
+    "query": "In Kubernetes cluster logging administration, when a container restarts, does the kubelet retain one terminated container and its logs by default?",
+    "answer": "Yes"
+  },
+  {
+    "evidence_snippet": "Because the logging agent must run on every node, it is recommended to run the agent as a `DaemonSet`.",
+    "path": "/kubernetes/concepts/cluster-administration/logging",
+    "query": "In Kubernetes cluster-level logging architecture, what is the recommended Kubernetes resource type for deploying a node-level logging agent?",
+    "answer": "`DaemonSet`"
+  },
+  {
+    "evidence_snippet": "On Linux nodes that use systemd, the kubelet and container runtime write to journald by default. You use `journalctl` to read the systemd journal; for example: `journalctl -u kubelet`.",
+    "path": "/kubernetes/concepts/cluster-administration/logging",
+    "query": "In Kubernetes cluster logging administration, on Linux nodes using systemd, where do the kubelet and container runtime write logs by default?",
+    "answer": "journald"
+  },
+  {
+    "evidence_snippet": "The kubectl proxy: - runs on a user's desktop or in a pod - proxies from a localhost address to the Kubernetes apiserver",
+    "path": "/kubernetes/concepts/cluster-administration/proxies",
+    "query": "In Kubernetes cluster proxy administration, where can the kubectl proxy run—on a user's desktop, in a pod, or both?",
+    "answer": "Yes"
+  },
+  {
+    "evidence_snippet": "The apiserver proxy: - is a bastion built into the apiserver - connects a user outside of the cluster to cluster IPs which otherwise might not be reachable",
+    "path": "/kubernetes/concepts/cluster-administration/proxies",
+    "query": "In Kubernetes cluster proxy administration, as a built-in bastion, which component is the apiserver proxy integrated into?",
+    "answer": "apiserver"
+  },
+  {
+    "evidence_snippet": "The kube proxy: - runs on each node - proxies UDP, TCP and SCTP - does not understand HTTP",
+    "path": "/kubernetes/concepts/cluster-administration/proxies",
+    "query": "In Kubernetes cluster proxy administration, does kube-proxy support HTTP protocol understanding for proxying?",
+    "answer": "No"
+  }, {
+    "evidence_snippet": "Cloud Load Balancers on external services: - are provided by some cloud providers (e.g. AWS ELB, Google Cloud Load Balancer) - are created automatically when the Kubernetes service has type `LoadBalancer`",
+    "path": "/kubernetes/concepts/cluster-administration/proxies",
+    "query": "In Kubernetes cluster proxy administration, which Service type triggers the automatic creation of cloud load balancers for external services?",
+    "answer": "`LoadBalancer`"
+  },
+  {
+    "evidence_snippet": "Proxies have replaced redirect capabilities. Redirects have been deprecated.",
+    "path": "/kubernetes/concepts/cluster-administration/proxies",
+    "query": "In Kubernetes cluster proxy administration, what has replaced redirect capabilities and are redirects now deprecated?",
+    "answer": "Yes"
+  },
+  {
+    "evidence_snippet": "Kubernetes components emit metrics in Prometheus format. This format is structured plain text, designed so that people and machines can both read it.",
+    "path": "/kubernetes/concepts/cluster-administration/system-metrics",
+    "query": "In Kubernetes system metrics administration, in what format do Kubernetes components emit their metrics?",
+    "answer": "Prometheus format"
+  },
+  {
+    "evidence_snippet": "Stable metrics are guaranteed to not change. This means: A stable metric without a deprecated signature will not be deleted or renamed. A stable metric's type will not be modified",
+    "path": "/kubernetes/concepts/cluster-administration/system-metrics",
+    "query": "In Kubernetes system metrics stability guarantees, is the type of a stable metric guaranteed not to be modified?",
+    "answer": "Yes"
+  },
+  {
+    "evidence_snippet": "A deprecated metric becomes a hidden metric after a period of time, based on its stability level: STABLE metrics become hidden after a minimum of 3 releases or 9 months, whichever is longer.",
+    "path": "/kubernetes/concepts/cluster-administration/system-metrics",
+    "query": "In Kubernetes system metrics lifecycle, how long does it take for a deprecated STABLE metric to become hidden?",
+    "answer": "a minimum of 3 releases or 9 months, whichever is longer"
+  },
+  {
+    "evidence_snippet": "If your cluster uses RBAC, reading metrics requires authorization via a user, group or ServiceAccount with a ClusterRole that allows accessing `/metrics`.",
+    "path": "/kubernetes/concepts/cluster-administration/system-metrics",
+    "query": "In Kubernetes system metrics access control, when RBAC is enabled, is authorization via a ClusterRole required to read metrics?",
+    "answer": "Yes"
+  },
+  {
+    "evidence_snippet": "You can explicitly turn off metrics via command line flag `--disabled-metrics`. This may be desired if, for example, a metric is causing a performance problem.",
+    "path": "/kubernetes/concepts/cluster-administration/system-metrics",
+    "query": "In Kubernetes system metrics configuration, which command-line flag can be used to explicitly disable specific metrics?",
+    "answer": "`--disabled-metrics`"
+  },
+  {
+    "evidence_snippet": "In Kubernetes, scheduling refers to making sure that Pods are matched to Nodes so that the kubelet can run them.",
+    "path": "/kubernetes/concepts/scheduling-eviction/_index",
+    "query": "In Kubernetes scheduling and eviction concepts, what resource does the scheduling process match Pods to so they can be run?",
+    "answer": "Nodes"
+  },
+  {
+    "evidence_snippet": "In Kubernetes, scheduling refers to making sure that Pods are matched to Nodes so that the kubelet can run them.",
+    "path": "/kubernetes/concepts/scheduling-eviction/_index",
+    "query": "In Kubernetes scheduling, which component is responsible for actually running Pods after they have been matched to Nodes by the scheduler?",
+    "answer": "kubelet"
+  },
+  {
+    "evidence_snippet": "Preemption is the process of terminating Pods with lower Priority so that Pods with higher Priority can schedule on Nodes.",
+    "path": "/kubernetes/concepts/scheduling-eviction/_index",
+    "query": "In Kubernetes scheduling and eviction, is preemption defined as the process of terminating lower-priority Pods to make room for higher-priority ones?",
+    "answer": "Yes"
+  },
+  {
+    "evidence_snippet": "Preemption is the process of terminating Pods with lower Priority so that Pods with higher Priority can schedule on Nodes.",
+    "path": "/kubernetes/concepts/scheduling-eviction/_index",
+    "query": "In Kubernetes scheduling preemption, which priority class of Pods gains the ability to schedule on Nodes after lower-priority Pods are terminated?",
+    "answer": "Pods with higher Priority"
+  },{
+    "evidence_snippet": "Eviction is the process of terminating one or more Pods on Nodes.",
+    "path": "/kubernetes/concepts/scheduling-eviction/_index",
+    "query": "In Kubernetes scheduling and eviction concepts, what is the term for the process of terminating one or more Pods on Nodes?",
+    "answer": "Eviction"
+  },
+  {
+    "evidence_snippet": "This hook is executed immediately after a container is created. It runs concurrently with the container's ENTRYPOINT (main process), meaning the hook may run before, during, or after the main process starts.",
+    "path": "/kubernetes/concepts/containers/container-lifecycle-hooks",
+    "query": "In Kubernetes container lifecycle hooks, does the PostStart hook run concurrently with the container's main process (ENTRYPOINT)?",
+    "answer": "Yes"
+  },
+  {
+    "evidence_snippet": "This hook is called immediately before a container is terminated due to an API request or management event such as a liveness/startup probe failure, preemption, resource contention and others.",
+    "path": "/kubernetes/concepts/containers/container-lifecycle-hooks",
+    "query": "In Kubernetes container lifecycle hooks, at what point during the container lifecycle is the PreStop hook triggered?",
+    "answer": "immediately before a container is terminated"
+  },
+  {
+    "evidence_snippet": "The StopSignal lifecycle can be used to define a stop signal which would be sent to the container when it is stopped.",
+    "path": "/kubernetes/concepts/containers/container-lifecycle-hooks",
+    "query": "In Kubernetes container lifecycle hooks, which lifecycle feature allows defining a stop signal to be sent when the container is stopped?",
+    "answer": "StopSignal"
+  },
+  {
+    "evidence_snippet": "If a PreStop hook hangs during execution, the Pod's phase will be Terminating and remain there until the Pod is killed after its terminationGracePeriodSeconds expires.",
+    "path": "/kubernetes/concepts/containers/container-lifecycle-hooks",
+    "query": "In Kubernetes container lifecycle hooks, what Pod phase is entered when a PreStop hook hangs during execution?",
+    "answer": "Terminating"
+  },
+  {
+    "evidence_snippet": "If either a PostStart or PreStop hook fails, it kills the Container.",
+    "path": "/kubernetes/concepts/containers/container-lifecycle-hooks",
+    "query": "In Kubernetes container lifecycle hooks, what happens to the container if either the PostStart or PreStop hook fails?",
+    "answer": "The container gets killed"
+  },
+  {
+    "evidence_snippet": "By default, containers run with unbounded compute resources on a Kubernetes cluster.",
+    "path": "/kubernetes/concepts/policy/limit-range",
+    "query": "In Kubernetes LimitRange policy, what is the default compute resource boundary for containers on a cluster?",
+    "answer": "unbounded"
+  },
+  {
+    "evidence_snippet": "The name of a LimitRange object must be a valid DNS subdomain name.",
+    "path": "/kubernetes/concepts/policy/limit-range",
+    "query": "In Kubernetes LimitRange policy, what naming format requirement must a LimitRange object satisfy?",
+    "answer": "valid DNS subdomain name"
+  },
+  {
+    "evidence_snippet": "If you attempt to create or update an object (Pod or PersistentVolumeClaim) that violates a LimitRange constraint, your request to the API server will fail with an HTTP status code `403 Forbidden` and a message explaining the constraint that has been violated.",
+    "path": "/kubernetes/concepts/policy/limit-range",
+    "query": "In Kubernetes LimitRange policy, what HTTP status code does the API server return when a request violates a LimitRange constraint?",
+    "answer": "403 Forbidden"
+  },
+  {
+    "evidence_snippet": "LimitRange validations occur only at Pod admission stage, not on running Pods. If you add or modify a LimitRange, the Pods that already exist in that namespace continue unchanged.",
+    "path": "/kubernetes/concepts/policy/limit-range",
+    "query": "In Kubernetes LimitRange policy, does LimitRange validation apply to already running Pods or only at admission time?",
+    "answer": "only at Pod admission stage"
+  },
+  {
+    "evidence_snippet": "A LimitRange does not check the consistency of the default values it applies. This means that a default value for the limit that is set by LimitRange may be less than the request value specified for the container in the spec that a client submits to the API server.",
+    "path": "/kubernetes/concepts/policy/limit-range",
+    "query": "In Kubernetes LimitRange policy, does a LimitRange validate the consistency of the default resource values it applies?",
+    "answer": "No"
+  },
+  {
+    "evidence_snippet": "On Linux nodes, memory-backed volumes (such as `secret` volume mounts, or `emptyDir` with `medium: Memory`) are implemented with a `tmpfs` filesystem.",
+    "path": "/kubernetes/concepts/security/linux-security",
+    "query": "In Kubernetes Linux security, what filesystem type is used to implement memory-backed volumes on Linux nodes?",
+    "answer": "tmpfs"
+  },
+  {
+    "evidence_snippet": "On Linux nodes, memory-backed volumes (such as `secret` volume mounts, or `emptyDir` with `medium: Memory`) are implemented with a `tmpfs` filesystem.",
+    "path": "/kubernetes/concepts/security/linux-security",
+    "query": "In Kubernetes Linux node security, are memory-backed volumes like secret mounts and memory emptyDir implemented using tmpfs?",
+    "answer": "Yes"
+  },
+  {
+    "evidence_snippet": "If you have swap configured and use an older Linux kernel (or a current kernel and an unsupported configuration of Kubernetes), **memory** backed volumes can have data written to persistent storage.",
+    "path": "/kubernetes/concepts/security/linux-security",
+    "query": "In Kubernetes Linux security, can memory-backed volumes write data to persistent storage when swap is enabled with an older kernel?",
+    "answer": "Yes"
+  },
+  {
+    "evidence_snippet": "The Linux kernel officially supports the `noswap` option from version 6.3, therefore it is recommended the used kernel version is 6.3 or later, or supports the `noswap` option via a backport, if swap is enabled on the node.",
+    "path": "/kubernetes/concepts/security/linux-security",
+    "query": "In Kubernetes Linux security, from which kernel version does the Linux kernel officially support the noswap option?",
+    "answer": "version 6.3"
+  },
+  {
+    "evidence_snippet": "The Linux kernel officially supports the `noswap` option from version 6.3, therefore it is recommended the used kernel version is 6.3 or later, or supports the `noswap` option via a backport, if swap is enabled on the node.",
+    "path": "/kubernetes/concepts/security/linux-security",
+    "query": "In Kubernetes Linux security best practices, what kernel option is officially supported from version 6.3 and recommended for nodes with swap enabled?",
+    "answer": "noswap"
+  },{
+    "evidence_snippet": "If the chosen plugin lacks this feature, an alternative solution could be to use a service mesh to provide that functionality.",
+    "path": "/kubernetes/concepts/security/security-checklist",
+    "query": "In Kubernetes security checklist, if the chosen network plugin lacks a certain feature, what alternative solution can provide that functionality?",
+    "answer": "a service mesh"
+  },
+  {
+    "evidence_snippet": "After bootstrapping, neither users nor components should authenticate to the Kubernetes API as `system:masters`.",
+    "path": "/kubernetes/concepts/security/security-checklist",
+    "query": "In Kubernetes security checklist, should users or components authenticate to the API server as system:masters after cluster bootstrapping?",
+    "answer": "No"
+  },
+  {
+    "evidence_snippet": "Seccomp is only available on Linux nodes.",
+    "path": "/kubernetes/concepts/security/security-checklist",
+    "query": "In Kubernetes security checklist, on which node operating system is Seccomp available?",
+    "answer": "Linux nodes only"
+  },
+  {
+    "evidence_snippet": "Pods needing secrets should have these automatically mounted through volumes, preferably stored in memory like with the `emptyDir.medium` option.",
+    "path": "/kubernetes/concepts/security/security-checklist",
+    "query": "In Kubernetes security checklist, which volume option is recommended for storing mounted secrets in memory for Pods?",
+    "answer": "emptyDir.medium option"
+  },
+  {
+    "evidence_snippet": "`DenyServiceExternalIPs`\n: Rejects all net-new usage of the `Service.spec.externalIPs` field.",
+    "path": "/kubernetes/concepts/security/security-checklist",
+    "query": "In Kubernetes security admission control, which admission controller rejects new usage of the Service.spec.externalIPs field?",
+    "answer": "DenyServiceExternalIPs"
+  },
+  {
+    "evidence_snippet": "In general, it is recommended to enable as few authentication mechanisms as possible to simplify user management and prevent cases where users retain access to a cluster that is no longer required.",
+    "path": "/kubernetes/concepts/security/hardening-guide/authentication-mechanisms",
+    "query": "In Kubernetes authentication hardening guide, is it recommended to minimize the number of enabled authentication mechanisms?",
+    "answer": "Yes"
+  },
+  {
+    "evidence_snippet": "Kubernetes leverages X.509 client certificate authentication for system components, such as when the kubelet authenticates to the API Server.",
+    "path": "/kubernetes/concepts/security/hardening-guide/authentication-mechanisms",
+    "query": "In Kubernetes authentication mechanisms hardening, what authentication method is used for system components like the kubelet connecting to the API Server?",
+    "answer": "X.509 client certificate"
+  },
+  {
+    "evidence_snippet": "Group data is embedded in the `O` value of the client certificate, which means the user's group memberships cannot be changed for the lifetime of the certificate.",
+    "path": "/kubernetes/concepts/security/hardening-guide/authentication-mechanisms",
+    "query": "In Kubernetes client certificate authentication, which field of the certificate embeds the user's group membership data?",
+    "answer": "O value"
+  },
+  {
+    "evidence_snippet": "Private keys used for client certificate authentication cannot be password-protected. Anyone who can read the file containing the key will be able to make use of it.",
+    "path": "/kubernetes/concepts/security/hardening-guide/authentication-mechanisms",
+    "query": "In Kubernetes authentication mechanisms hardening, can private keys for client certificate authentication be protected with a password?",
+    "answer": "No"
+  },
+  {
+    "evidence_snippet": "In Kubernetes < 1.23, these were the default option, however, they are being replaced with TokenRequest API tokens.",
+    "path": "/kubernetes/concepts/security/hardening-guide/authentication-mechanisms",
+    "query": "In Kubernetes authentication mechanisms, what technology is replacing the legacy ServiceAccount secret-based tokens?",
+    "answer": "TokenRequest API tokens"
+  },
+  {
+    "evidence_snippet": "When you scale a workload, you can either increase or decrease the number of replicas managed by the workload, or adjust the resources available to the replicas in-place. The first approach is referred to as horizontal scaling, while the second is referred to as vertical scaling.",
+    "path": "/kubernetes/concepts/workloads/autoscaling",
+    "query": "In Kubernetes workload autoscaling, what is the term for adjusting the resources allocated to replicas in-place without changing replica count?",
+    "answer": "vertical scaling"
+  },
+  {
+    "evidence_snippet": "Kubernetes supports manual scaling of workloads. Horizontal scaling can be done using the `kubectl` CLI. For vertical scaling, you need to patch the resource definition of your workload.",
+    "path": "/kubernetes/concepts/workloads/autoscaling",
+    "query": "In Kubernetes workload autoscaling, can horizontal scaling be performed manually through the kubectl command-line tool?",
+    "answer": "Yes"
+  },
+  {
+    "evidence_snippet": "You can automatically scale a workload vertically using a VerticalPodAutoscaler (VPA). Unlike the HPA, the VPA doesn't come with Kubernetes by default, but is a an add-on that you or a cluster administrator may need to deploy before you can use it. ... You will need to have the Metrics Server installed to your cluster for the VPA to work.",
+    "path": "/kubernetes/concepts/workloads/autoscaling",
+    "query": "In Kubernetes workload autoscaling, is the Metrics Server a required prerequisite for the VerticalPodAutoscaler (VPA) to function?",
+    "answer": "Yes"
+  },
+  {
+    "evidence_snippet": "For workloads that need to be scaled based on the size of the cluster (for example `cluster-dns` or other system components), you can use the Cluster Proportional Autoscaler. Just like the VPA, it is not part of the Kubernetes core, but hosted as its own project on GitHub.",
+    "path": "/kubernetes/concepts/workloads/autoscaling",
+    "query": "In Kubernetes workload autoscaling, which autoscaler is designed for workloads that scale proportionally with cluster size?",
+    "answer": "Cluster Proportional Autoscaler"
+  },
+  {
+    "evidence_snippet": "It is also possible to scale workloads based on events, for example using the Kubernetes Event Driven Autoscaler (KEDA). KEDA is a CNCF-graduated project enabling you to scale your workloads based on the number of events to be processed, for example the amount of messages in a queue.",
+    "path": "/kubernetes/concepts/workloads/autoscaling",
+    "query": "In Kubernetes workload autoscaling, which CNCF-graduated project enables event-driven workload scaling based on metrics like queue length?",
+    "answer": "Kubernetes Event Driven Autoscaler (KEDA)"
+  },{
+    "evidence_snippet": "A Pod's status includes an array of PodConditions that indicate whether the Pod has passed certain checkpoints.",
+    "path": "/kubernetes/concepts/workloads/pods/pod-condition",
+    "query": "In Kubernetes Pod condition concepts, what array structure within a Pod's status indicates whether the Pod has passed certain checkpoints?",
+    "answer": "PodConditions"
+  },
+  {
+    "evidence_snippet": "The `PodReadyToStartContainers` condition is set to `True` by the kubelet after the successful completion of sandbox creation and network configuration for the Pod by the runtime plugin.",
+    "path": "/kubernetes/concepts/workloads/pods/pod-condition",
+    "query": "In Kubernetes Pod conditions, which component sets the PodReadyToStartContainers condition to True after sandbox creation and network configuration succeed?",
+    "answer": "kubelet"
+  },
+  {
+    "evidence_snippet": "For a Pod with init containers, the kubelet sets the `Initialized` condition to `True` after the init containers have successfully completed (which happens after successful sandbox creation and network configuration by the runtime plugin).",
+    "path": "/kubernetes/concepts/workloads/pods/pod-condition",
+    "query": "In Kubernetes Pod conditions, does the kubelet set the Initialized condition to True after all init containers complete successfully?",
+    "answer": "Yes"
+  },
+  {
+    "evidence_snippet": "When a Pod's containers are Ready but at least one custom condition is missing or `False`, the kubelet sets the Pod's `Ready` condition to `status: \"False\"` with `reason: ReadinessGatesNotReady`.",
+    "path": "/kubernetes/concepts/workloads/pods/pod-condition",
+    "query": "In Kubernetes Pod readiness gates, what reason value does the kubelet assign when the Ready condition is set to False due to unsatisfied custom conditions?",
+    "answer": "ReadinessGatesNotReady"
+  },
+  {
+    "evidence_snippet": "The Pod conditions you add must have names that meet the Kubernetes label key format.",
+    "path": "/kubernetes/concepts/workloads/pods/pod-condition",
+    "query": "In Kubernetes custom Pod conditions, what naming format must custom condition names comply with?",
+    "answer": "Kubernetes label key format"
+  },
+  {
+    "evidence_snippet": "The `schedulingGroup` field is immutable. Once set, a `Pod` cannot be moved to a different `PodGroup`.",
+    "path": "/kubernetes/concepts/workloads/pods/scheduling-group",
+    "query": "In Kubernetes Pod scheduling group concepts, can a Pod be moved to a different PodGroup after the schedulingGroup field is set?",
+    "answer": "No"
+  },
+  {
+    "evidence_snippet": "When the `GenericWorkload` feature gate is enabled, you can set the `spec.schedulingGroup` field in your `Pod` manifest.",
+    "path": "/kubernetes/concepts/workloads/pods/scheduling-group",
+    "query": "In Kubernetes Pod scheduling group configuration, which feature gate must be enabled to set the spec.schedulingGroup field in a Pod manifest?",
+    "answer": "GenericWorkload"
+  },
+  {
+    "evidence_snippet": "If the `PodGroup` uses the `gang` policy, the `Pod` enters an \"all-or-nothing\" scheduling lifecycle.",
+    "path": "/kubernetes/concepts/workloads/pods/scheduling-group",
+    "query": "In Kubernetes PodGroup scheduling policies, which policy results in an all-or-nothing scheduling lifecycle for Pods?",
+    "answer": "gang policy"
+  },
+  {
+    "evidence_snippet": "If the `PodGroup` uses the `basic` policy, each `Pod` is scheduled independently using standard Kubernetes behavior.",
+    "path": "/kubernetes/concepts/workloads/pods/scheduling-group",
+    "query": "In Kubernetes PodGroup scheduling policies, does the basic policy schedule each Pod independently using standard Kubernetes behavior?",
+    "answer": "Yes"
+  },
+  {
+    "evidence_snippet": "If a `Pod` references a `PodGroup` that does not yet exist, the `Pod` remains pending.",
+    "path": "/kubernetes/concepts/workloads/pods/scheduling-group",
+    "query": "In Kubernetes Pod scheduling groups, what scheduling state does a Pod stay in if it references a non-existent PodGroup?",
+    "answer": "pending"
+  },
+  {
+    "evidence_snippet": "The implementation of dynamic volume provisioning is based on the API object `StorageClass` from the API group `storage.k8s.io`.",
+    "path": "/kubernetes/concepts/storage/dynamic-provisioning",
+    "query": "In Kubernetes dynamic storage provisioning, which API group does the StorageClass object belong to?",
+    "answer": "storage.k8s.io"
+  },
+  {
+    "evidence_snippet": "The name of a StorageClass object must be a valid DNS subdomain name.",
+    "path": "/kubernetes/concepts/storage/dynamic-provisioning",
+    "query": "In Kubernetes StorageClass naming rules, must the name of a StorageClass object be a valid DNS subdomain name?",
+    "answer": "Yes"
+  },
+  {
+    "evidence_snippet": "Before Kubernetes v1.6, this was done via the `volume.beta.kubernetes.io/storage-class` annotation. However, this annotation is deprecated since v1.9.",
+    "path": "/kubernetes/concepts/storage/dynamic-provisioning",
+    "query": "In Kubernetes dynamic storage provisioning, is the volume.beta.kubernetes.io/storage-class annotation deprecated starting from version v1.9?",
+    "answer": "Yes"
+  },
+  {
+    "evidence_snippet": "Users now can and should instead use the `storageClassName` field of the `PersistentVolumeClaim` object.",
+    "path": "/kubernetes/concepts/storage/dynamic-provisioning",
+    "query": "In Kubernetes dynamic volume provisioning, which field of a PersistentVolumeClaim should be used to specify the desired storage class?",
+    "answer": "storageClassName"
+  },
+  {
+    "evidence_snippet": "An administrator can mark a specific `StorageClass` as default by adding the `storageclass.kubernetes.io/is-default-class` annotation to it.",
+    "path": "/kubernetes/concepts/storage/dynamic-provisioning",
+    "query": "In Kubernetes StorageClass administration, which annotation marks a StorageClass as the default for dynamic provisioning?",
+    "answer": "storageclass.kubernetes.io/is-default-class"
+  },
+  {
+    "evidence_snippet": "Without storage capacity tracking, the scheduler may choose a node that doesn't have enough capacity to provision a volume and multiple scheduling retries will be needed.",
+    "path": "/kubernetes/concepts/storage/storage-capacity",
+    "query": "In Kubernetes storage capacity tracking, can the scheduler incorrectly select a node without sufficient volume capacity when capacity tracking is disabled?",
+    "answer": "Yes"
+  },
+  {
+    "evidence_snippet": "There are two API extensions for this feature:\n- CSIStorageCapacity objects: these get produced by a CSI driver in the namespace where the driver is installed.",
+    "path": "/kubernetes/concepts/storage/storage-capacity",
+    "query": "In Kubernetes storage capacity tracking, which API objects are generated by CSI drivers to expose storage capacity information?",
+    "answer": "CSIStorageCapacity"
+  },
+  {
+    "evidence_snippet": "Each StorageClass contains the fields `provisioner`, `parameters`, and `reclaimPolicy`, which are used when a PersistentVolume belonging to the class needs to be dynamically provisioned to satisfy a PersistentVolumeClaim (PVC).",
+    "path": "/kubernetes/concepts/storage/storage-classes",
+    "query": "In Kubernetes StorageClass definitions, which three core fields are used when dynamically provisioning a PersistentVolume for a PVC?",
+    "answer": "provisioner, parameters, and reclaimPolicy"
+  },{
+    "evidence_snippet": "You can only use the volume expansion feature to grow a Volume, not to shrink it.",
+    "path": "/kubernetes/concepts/storage/storage-classes",
+    "query": "In Kubernetes StorageClass volume expansion, can the volume expansion feature be used to decrease or shrink a volume's size?",
+    "answer": "No"
+  },
+  {
+    "evidence_snippet": "The Kubernetes scheduler has default limits on the number of volumes that can be attached to a Node:\n\n<table>\n  <tr><th>Cloud service</th><th>Maximum volumes per Node</th></tr>\n  <tr><td><a href=\"https://aws.amazon.com/ebs/\">Amazon Elastic Block Store (EBS)</a></td><td>39</td></tr>",
+    "path": "/kubernetes/concepts/storage/storage-limits",
+    "query": "In Kubernetes storage volume limits, what is the default maximum number of Amazon EBS volumes that can be attached to a single Node?",
+    "answer": "39"
+  },
+  {
+    "evidence_snippet": "There are two valid update strategies, `RollingUpdate` (the default) and `OnDelete`.",
+    "path": "/kubernetes/tutorials/stateful-application/basic-stateful-set",
+    "query": "In Kubernetes StatefulSet basic tutorial, what is the default update strategy for a StatefulSet?",
+    "answer": "RollingUpdate"
+  },
+  {
+    "evidence_snippet": "StatefulSet supports both _non-cascading_ and _cascading_ deletion. In a non-cascading delete, the StatefulSet's Pods are not deleted when the StatefulSet is deleted.",
+    "path": "/kubernetes/tutorials/stateful-application/basic-stateful-set",
+    "query": "In Kubernetes StatefulSet deletion modes, are the Pods deleted when performing a non-cascading delete of a StatefulSet?",
+    "answer": "No"
+  },
+  {
+    "evidence_snippet": "When a Cassandra node starts, it uses a _seed list_ to bootstrap discovery of other nodes in the ring.",
+    "path": "/kubernetes/tutorials/stateful-application/cassandra",
+    "query": "In Kubernetes Cassandra stateful application tutorial, what mechanism does a Cassandra node use to discover other ring nodes on startup?",
+    "answer": "a seed list"
+  },
+  {
+    "evidence_snippet": "Since 1.14, `kubectl` supports the management of Kubernetes objects using a kustomization file. You can create a Secret by generators in `kustomization.yaml`.",
+    "path": "/kubernetes/tutorials/stateful-application/mysql-wordpress-persistent-volume",
+    "query": "In Kubernetes stateful application tutorials, since which version does kubectl support object management via kustomization files?",
+    "answer": "1.14"
+  },
+  {
+    "evidence_snippet": "ZooKeeper servers keep their entire state machine in memory, and write every mutation to a durable WAL (Write Ahead Log) on storage media. When a server crashes, it can recover its previous state by replaying the WAL.",
+    "path": "/kubernetes/tutorials/stateful-application/zookeeper",
+    "query": "In Kubernetes ZooKeeper stateful application tutorial, what log does a ZooKeeper server replay to recover state after a crash?",
+    "answer": "the WAL"
+  },
+  {
+    "evidence_snippet": "The API server is a component of the Kubernetes control plane that exposes the Kubernetes API.",
+    "path": "/kubernetes/reference/glossary/kube-apiserver",
+    "query": "In Kubernetes glossary, which control plane component is responsible for exposing the Kubernetes API?",
+    "answer": "The API server"
+  },
+  {
+    "evidence_snippet": "kube-apiserver is designed to scale horizontally&mdash;that is, it scales by deploying more instances. You can run several instances of kube-apiserver and balance traffic between those instances.",
+    "path": "/kubernetes/reference/glossary/kube-apiserver",
+    "query": "In Kubernetes glossary kube-apiserver, does kube-apiserver support horizontal scaling by adding more instances?",
+    "answer": "Yes"
+  },
+  {
+    "evidence_snippet": "Control plane component that runs controller processes. Logically, each controller is a separate process, but to reduce complexity, they are all compiled into a single binary and run in a single process.",
+    "path": "/kubernetes/reference/glossary/kube-controller-manager",
+    "query": "In Kubernetes glossary, which control plane component runs all controller processes compiled into a single binary?",
+    "answer": "kube-controller-manager"
+  },
+  {
+    "evidence_snippet": "kube-proxy uses the operating system packet filtering layer if there is one and it's available. Otherwise, kube-proxy forwards the traffic itself.",
+    "path": "/kubernetes/reference/glossary/kube-proxy",
+    "query": "In Kubernetes glossary kube-proxy, does kube-proxy forward traffic directly when the OS packet filtering layer is unavailable?",
+    "answer": "Yes"
+  },
+  {
+    "evidence_snippet": "kube-proxy is a network proxy that runs on each node in your cluster, implementing part of the Kubernetes Service concept.",
+    "path": "/kubernetes/reference/glossary/kube-proxy",
+    "query": "In Kubernetes glossary, what network proxy runs on every cluster node and implements part of the Service concept?",
+    "answer": "kube-proxy"
+  },
+  {
+    "evidence_snippet": "Control plane component that watches for newly created Pods with no assigned node, and selects a node for them to run on.",
+    "path": "/kubernetes/reference/glossary/kube-scheduler",
+    "query": "In Kubernetes glossary, which control plane component assigns nodes to newly created unscheduled Pods?",
+    "answer": "kube-scheduler"
+  },
+  {
+    "evidence_snippet": "You can use kubeadm to install both the control plane and the worker node components.",
+    "path": "/kubernetes/reference/glossary/kubeadm",
+    "query": "In Kubernetes glossary kubeadm, can kubeadm install both control plane and worker node components?",
+    "answer": "Yes"
+  },{
+    "evidence_snippet": "A tool for quickly installing Kubernetes and setting up a secure cluster.",
+    "path": "/kubernetes/reference/glossary/kubeadm",
+    "query": "In Kubernetes glossary, what is the name of the tool for quickly installing Kubernetes and setting up a secure cluster?",
+    "answer": "kubeadm"
+  },
+  {
+    "evidence_snippet": "Command line tool for communicating with a Kubernetes cluster's control plane, using the Kubernetes API. You can use `kubectl` to create, inspect, update, and delete Kubernetes objects.",
+    "path": "/kubernetes/reference/glossary/kubectl",
+    "query": "In Kubernetes glossary, what command-line tool communicates with the control plane via the Kubernetes API to manage objects?",
+    "answer": "kubectl"
+  },
+  {
+    "evidence_snippet": "The kubelet doesn't manage containers which were not created by Kubernetes.",
+    "path": "/kubernetes/reference/glossary/kubelet",
+    "query": "In Kubernetes glossary kubelet, does the kubelet manage containers that were created outside of Kubernetes?",
+    "answer": "No"
+  },
+  {
+    "evidence_snippet": "An agent that runs on each node in the cluster. It makes sure that containers are running in a Pod.",
+    "path": "/kubernetes/reference/glossary/kubelet",
+    "query": "In Kubernetes glossary, what is the name of the node agent that ensures containers are running in Pods?",
+    "answer": "kubelet"
+  },
+  {
+    "evidence_snippet": "Kubernetes resources and \"records of intent\" are all stored as API objects, and modified via RESTful calls to the API. The API allows configuration to be managed in a declarative way.",
+    "path": "/kubernetes/reference/glossary/kubernetes-api",
+    "query": "In Kubernetes glossary, are Kubernetes resources and records of intent modified through RESTful API calls?",
+    "answer": "Yes"
+  },
+  {
+    "evidence_snippet": "Labels are key/value pairs that are attached to objects such as Pods. They are used to organize and to select subsets of objects.",
+    "path": "/kubernetes/reference/glossary/label",
+    "query": "In Kubernetes glossary, what are the key/value pairs attached to objects like Pods for organizing and selecting subsets called?",
+    "answer": "Labels"
+  },
+  {
+    "evidence_snippet": "A LimitRange either limits the quantity of API resources that can be created (for a particular resource type), or the amount of infrastructure resources that may be requested/consumed by individual containers or Pods within a namespace.",
+    "path": "/kubernetes/reference/glossary/limitrange",
+    "query": "In Kubernetes glossary LimitRange, does a LimitRange constrain resource requests and consumption per container or Pod within a namespace?",
+    "answer": "Yes"
+  },
+  {
+    "evidence_snippet": "Logs are the list of events that are logged by cluster or application.",
+    "path": "/kubernetes/reference/glossary/logging",
+    "query": "In Kubernetes glossary, what term refers to the list of events logged by a cluster or application?",
+    "answer": "Logs"
+  },
+  {
+    "evidence_snippet": "Some examples of Managed Services are AWS EC2, Azure SQL Database, and GCP Pub/Sub, but they can be any software offering that can be used by an application.",
+    "path": "/kubernetes/reference/glossary/managed-service",
+    "query": "In Kubernetes glossary managed service, are AWS EC2 and Azure SQL Database considered examples of Managed Services?",
+    "answer": "Yes"
+  },
+  {
+    "evidence_snippet": "A manifest specifies the desired state of an object that Kubernetes will maintain when you apply the manifest. For YAML format, each file can contain multiple manifests.",
+    "path": "/kubernetes/reference/glossary/manifest",
+    "query": "In Kubernetes glossary manifest, can a single YAML file contain multiple manifest definitions?",
+    "answer": "Yes"
+  },
+  {
+    "evidence_snippet": "Legacy term, used as synonym for nodes hosting the control plane. The term is still being used by some provisioning tools, such as kubeadm, and managed services, to label nodes with `kubernetes.io/role` and control placement of control plane pods.",
+    "path": "/kubernetes/reference/glossary/master",
+    "query": "In Kubernetes glossary, what legacy term is used as a synonym for nodes that host the control plane?",
+    "answer": "Master"
+  },
+  {
+    "evidence_snippet": "Minikube runs an all-in-one or a multi-node local Kubernetes cluster inside a VM on your computer.",
+    "path": "/kubernetes/reference/glossary/minikube",
+    "query": "In Kubernetes glossary minikube, does Minikube run a local Kubernetes cluster inside a VM on your personal computer?",
+    "answer": "Yes"
+  },
+  {
+    "evidence_snippet": "When the kubelet finds a static pod in its configuration, it automatically tries to create a Pod object on the Kubernetes API server for it. This means that the pod will be visible on the API server, but cannot be controlled from there.",
+    "path": "/kubernetes/reference/glossary/mirror-pod",
+    "query": "In Kubernetes glossary mirror pod, can a mirror pod be controlled or modified directly from the API server?",
+    "answer": "No"
+  },
+  {
+    "evidence_snippet": "As of Helm 2.2.0, client-side SSL auth to a repository is supported.",
+    "path": "/helms/topics/chart_repository",
+    "query": "In Helm chart repository, from which version does Helm support client-side SSL authentication for chart repositories?",
+    "answer": "Helm 2.2.0"
+  },
+  {
+    "evidence_snippet": "The `helm repo index` command will completely rebuild the `index.yaml` file from scratch, including only the charts that it finds locally.",
+    "path": "/helms/topics/chart_repository",
+    "query": "In Helm chart repository commands, does the helm repo index command rebuild the index.yaml file completely from scratch?",
+    "answer": "Yes"
+  },
+  {
+    "evidence_snippet": "The container should exit successfully (exit 0) for a test to be considered a success.",
+    "path": "/helms/topics/chart_tests",
+    "query": "In Helm chart tests, what exit code indicates that a chart test has completed successfully?",
+    "answer": "exit 0"
+  },
+  {
+    "evidence_snippet": "You can run the pre-defined tests in Helm on a release using the command `helm test <RELEASE_NAME>`.",
+    "path": "/helms/topics/chart_tests",
+    "query": "In Helm chart tests, what command runs the pre-defined tests against an existing Helm release?",
+    "answer": "helm test <RELEASE_NAME>"
+  },
+  {
+    "evidence_snippet": "You can use the Helm mapkubeapis plugin to perform the update of a release to supported APIs.",
+    "path": "/helms/topics/kubernetes_apis",
+    "query": "In Helm Kubernetes API management, which Helm plugin updates a release to use supported API versions?",
+    "answer": "mapkubeapis"
+  },
+  {
+    "evidence_snippet": "The API version is defined by the `kind` and `apiVersion` fields.",
+    "path": "/helms/topics/kubernetes_apis",
+    "query": "In Helm Kubernetes APIs, are the kind and apiVersion fields used together to define the API version of a resource?",
+    "answer": "Yes"
+  },
+  {
+    "evidence_snippet": "Helm can be enabled in MicroK8s using the command: `microk8s.enable helm3`",
+    "path": "/helms/topics/kubernetes_distros",
+    "query": "In Helm Kubernetes distributions, what command enables Helm support in a MicroK8s cluster?",
+    "answer": "microk8s.enable helm3"
+  },
+  {
+    "evidence_snippet": "Helm works straightforward on OpenShift Online, OpenShift Dedicated, OpenShift Container Platform (version >= 3.6) or OpenShift Origin (version >= 3.6).",
+    "path": "/helms/topics/kubernetes_distros",
+    "query": "In Helm Kubernetes distributions, does Helm work straightforwardly on OpenShift Origin version 3.6 and above?",
+    "answer": "Yes"
+  },
+  {
+    "evidence_snippet": "The library chart was introduced in Helm 3 to formally recognize common or helper charts that have been used by chart maintainers since Helm 2.",
+    "path": "/helms/topics/library_charts",
+    "query": "In Helm library charts, which major version of Helm formally introduced the library chart concept?",
+    "answer": "Helm 3"
+  },
+  {
+    "evidence_snippet": "The `.Files` object references the file paths on the parent chart, rather than the path local to the library chart",
+    "path": "/helms/topics/library_charts",
+    "query": "In Helm library charts, does the .Files object resolve paths relative to the library chart itself?",
+    "answer": "No"
+  },
+  {
+    "evidence_snippet": "To manage permissions, the SQL backend driver leverages the RLS(Row Security Level) feature of PostgreSQL.",
+    "path": "/helms/topics/permissions_sql_storage_backend",
+    "query": "In Helm SQL storage backend permissions, which PostgreSQL feature does the SQL backend driver use for permission management?",
+    "answer": "RLS"
+  },
+  {
+    "evidence_snippet": "From Kubernetes 1.6 onwards, Role-based Access Control is enabled by default.",
+    "path": "/helms/topics/rbac",
+    "query": "In Helm RBAC configuration, is Role-based Access Control enabled by default starting from Kubernetes version 1.6?",
+    "answer": "Yes"
+  },
+  {
+    "evidence_snippet": "The `view` ClusterRole does not grant a user read access to Secrets due to escalation concerns. Helm stores release metadata as Secrets by default.",
+    "path": "/helms/topics/rbac",
+    "query": "In Helm RBAC, how does Helm store release metadata by default when using the Kubernetes backend?",
+    "answer": "as Secrets"
+  },
+  {
+    "evidence_snippet": "If no hook deletion policy annotation is specified, the `before-hook-creation` behavior applies by default.",
+    "path": "/helms/topics/charts_hooks",
+    "query": "In Helm chart hooks, what is the default hook deletion policy when no annotation is explicitly specified?",
+    "answer": "before-hook-creation"
+  },
+  {
+    "evidence_snippet": "Hook weights can be positive or negative numbers but must be represented as strings.",
+    "path": "/helms/topics/charts_hooks",
+    "query": "In Helm chart hooks, do hook weight values need to be represented as strings rather than integers?",
+    "answer": "Yes"
+  },
+  {
+    "evidence_snippet": "Alerting rules without the `for` clause will become active on the first evaluation.",
+    "path": "/prometheus/server/configuration/alerting_rules",
+    "query": "In Prometheus alerting rules configuration, do alerting rules without a for clause become active immediately on the first evaluation?",
+    "answer": "Yes"
+  },{
+    "evidence_snippet": "To manually inspect which alerts are active (pending or firing), navigate to the \"Alerts\" tab of your Prometheus instance.",
+    "path": "/prometheus/server/configuration/alerting_rules",
+    "query": "In Prometheus alerting rules configuration, which UI tab of a Prometheus instance is used to manually inspect active alerts including pending and firing states?",
+    "answer": "Alerts tab"
+  },
+  {
+    "evidence_snippet": "The configured external labels can be accessed via the `$externalLabels` variable.",
+    "path": "/prometheus/server/configuration/alerting_rules",
+    "query": "In Prometheus alerting rule templating, which variable provides access to the externally configured labels?",
+    "answer": "$externalLabels"
+  },
+  {
+    "evidence_snippet": "To specify which configuration file to load, use the `--config.file` flag.",
+    "path": "/prometheus/server/configuration/configuration",
+    "query": "In Prometheus server configuration, which command-line flag specifies the configuration file path to load?",
+    "answer": "--config.file"
+  },
+  {
+    "evidence_snippet": "A configuration reload is triggered by sending a `SIGHUP` to the Prometheus process or sending a HTTP POST request to the `/-/reload` endpoint (when the `--web.enable-lifecycle` flag is enabled).",
+    "path": "/prometheus/server/configuration/configuration",
+    "query": "In Prometheus server configuration, which HTTP endpoint accepts POST requests to trigger a config reload when lifecycle management is enabled?",
+    "answer": "/-/reload"
+  },
+  {
+    "evidence_snippet": "The file is written in YAML format,\ndefined by the scheme described below.",
+    "path": "/prometheus/server/configuration/configuration",
+    "query": "In Prometheus server configuration, what format is the Prometheus configuration file written in?",
+    "answer": "YAML"
+  },
+  {
+    "evidence_snippet": "The `prometheus_sd_http_failures_total` counter metric tracks the number of\nrefresh failures.",
+    "path": "/prometheus/server/configuration/configuration",
+    "query": "In Prometheus HTTP service discovery, what is the name of the counter metric that tracks HTTP SD refresh failures?",
+    "answer": "prometheus_sd_http_failures_total"
+  },
+  {
+    "evidence_snippet": "[ track_timestamps_staleness: <boolean> | default = false ]",
+    "path": "/prometheus/server/configuration/configuration",
+    "query": "In Prometheus scrape configuration, what is the default value of the track_timestamps_staleness boolean setting?",
+    "answer": "false"
+  },
+  {
+    "evidence_snippet": "To specify which web configuration file to load, use the `--web.config.file` flag.",
+    "path": "/prometheus/server/configuration/https",
+    "query": "In Prometheus HTTPS and web configuration, which flag specifies the web configuration file to load for TLS and auth settings?",
+    "answer": "--web.config.file"
+  },
+  {
+    "evidence_snippet": "Enable HTTP/2 support. Note that HTTP/2 is only supported with TLS.",
+    "path": "/prometheus/server/configuration/https",
+    "query": "In Prometheus web server configuration, is HTTP/2 protocol support available only when TLS is enabled?",
+    "answer": "Yes"
+  },
+  {
+    "evidence_snippet": "Before you can monitor your services, you need to add instrumentation to their code via one of the Prometheus client libraries.",
+    "path": "/prometheus/instrumenting/clientlibs",
+    "query": "In Prometheus instrumentation client libraries, is adding code instrumentation via a client library required before services can be monitored?",
+    "answer": "Yes"
+  },
+  {
+    "evidence_snippet": "If no client library is available for your language, or you want to avoid dependencies, you may also implement one of the supported exposition formats yourself to expose metrics.",
+    "path": "/prometheus/instrumenting/clientlibs",
+    "query": "In Prometheus instrumentation, what can you implement manually when no client library exists for your programming language?",
+    "answer": "one of the supported exposition formats"
+  },
+  {
+    "evidence_snippet": "The following protocols are supported by Prometheus: 1. PrometheusProto - Binary protobuf format 2. PrometheusText0.0.4 - Prometheus text format version 0.0.4 3. PrometheusText1.0.0 - Prometheus text format version 1.0.0 4. OpenMetricsText0.0.1 - OpenMetrics text format version 0.0.1 5. OpenMetricsText1.0.0 - OpenMetrics text format version 1.0.0",
+    "path": "/prometheus/instrumenting/content_negotiation",
+    "query": "In Prometheus scrape content negotiation, how many exposition protocols does Prometheus officially support?",
+    "answer": "5"
+  },
+  {
+    "evidence_snippet": "It MUST use the protocol in the Accept header with the highest weighting that is supported by Prometheus.",
+    "path": "/prometheus/instrumenting/content_negotiation",
+    "query": "In Prometheus content negotiation, which protocol from the Accept header must the scrape target select?",
+    "answer": "the protocol in the Accept header with the highest weighting that is supported by Prometheus"
+  },
+  {
+    "evidence_snippet": "If no fallback is specified, the target MUST use PrometheusText0.0.4 as a last resort.",
+    "path": "/prometheus/instrumenting/content_negotiation",
+    "query": "In Prometheus content negotiation, what protocol format is used as the final fallback when no other protocol matches?",
+    "answer": "PrometheusText0.0.4"
+  },
+  {
+    "evidence_snippet": "If no escaping scheme is specified in the Accept header, `underscores` escaping SHOULD be used.",
+    "path": "/prometheus/instrumenting/escaping_schemes",
+    "query": "In Prometheus metric escaping schemes, which escaping scheme is the default when none is specified in the Accept header?",
+    "answer": "underscores"
+  },{
+    "evidence_snippet": "Any character that is not in the legacy character set (a-zA-Z0-9\\_:) MUST be replaced with an underscore.",
+    "path": "/prometheus/instrumenting/escaping_schemes",
+    "query": "In the Prometheus underscores escaping scheme, what happens to characters that are not in the legacy character set?",
+    "answer": "MUST be replaced with an underscore"
+  },
+  {
+    "evidence_snippet": "There are a number of libraries and servers which help in exporting existing metrics from third-party systems as Prometheus metrics. This is useful for cases where it is not feasible to instrument a given system with Prometheus metrics directly",
+    "path": "/prometheus/instrumenting/exporters",
+    "query": "When should Prometheus exporters be used instead of directly instrumenting a system?",
+    "answer": "This is useful for cases where it is not feasible to instrument a given system with Prometheus metrics directly"
+  },
+  {
+    "evidence_snippet": "Metric names should never be procedurally generated, except when writing a custom collector or exporter.",
+    "path": "/prometheus/instrumenting/writing_exporters",
+    "query": "When writing a custom Prometheus exporter, when is it acceptable to procedurally generate metric names?",
+    "answer": "except when writing a custom collector or exporter"
+  },
+  {
+    "evidence_snippet": "The Prometheus Pushgateway allows you to push time series from short-lived service-level batch jobs to an intermediary job which Prometheus can scrape.",
+    "path": "/prometheus/instrumenting/pushing",
+    "query": "What is the purpose of the Prometheus Pushgateway?",
+    "answer": "allows you to push time series from short-lived service-level batch jobs to an intermediary job which Prometheus can scrape"
+  },
+  {
+    "evidence_snippet": "Clients MUST be written to be callback based internally.",
+    "path": "/prometheus/instrumenting/writing_clientlibs",
+    "query": "When writing a Prometheus client library, how should it be implemented internally?",
+    "answer": "Clients MUST be written to be callback based internally."
+  },
+  {
+    "evidence_snippet": "Client libraries MUST be thread safe.",
+    "path": "/prometheus/instrumenting/writing_clientlibs",
+    "query": "Are Prometheus client libraries required to be thread safe?",
+    "answer": "Client libraries MUST be thread safe."
+  },
+  {
+    "evidence_snippet": "Counter and Gauge MUST be part of the client library. At least one of Summary and Histogram MUST be offered.",
+    "path": "/prometheus/instrumenting/writing_clientlibs",
+    "query": "Which metric types are required in every Prometheus client library?",
+    "answer": "Counter and Gauge."
+  },
+  {
+    "evidence_snippet": "As of Prometheus version 2.0, all processes that expose metrics to Prometheus must use a text format, by default.",
+    "path": "/prometheus/instrumenting/exposition_formats",
+    "query": "Starting with Prometheus 2.0, what is the default exposition format for metrics exposed to Prometheus?",
+    "answer": "text format"
+  },
+  {
+    "evidence_snippet": "Starting with Prometheus 3.0, scrape targets must return a valid Content-Type header for the metrics endpoint. If the Content-Type is missing, unparsable, or not a supported media type, the scrape will fail.",
+    "path": "/prometheus/instrumenting/exposition_formats",
+    "query": "What happens if a Prometheus scrape target returns an invalid or unparsable Content-Type header starting with Prometheus 3.0?",
+    "answer": "the scrape will fail"
+  },
+  {
+    "evidence_snippet": "Prometheus supports basic authentication (aka \"basic auth\") for connections to the Prometheus expression browser and HTTP API.",
+    "path": "/prometheus/guides/basic-auth",
+    "query": "Which Prometheus interfaces support basic authentication?",
+    "answer": "the Prometheus expression browser and HTTP API"
+  },
+  {
+    "evidence_snippet": "In this example, I used \"test\" as password.",
+    "path": "/prometheus/guides/basic-auth",
+    "query": "What password is used in the Prometheus basic authentication example?",
+    "answer": "test"
+  },
+  {
+    "evidence_snippet": "To generate a hashed password, we will use python3-bcrypt.",
+    "path": "/prometheus/guides/basic-auth",
+    "query": "Which tool is used to generate a hashed password for Prometheus basic authentication?",
+    "answer": "python3-bcrypt"
+  },
+  {
+    "evidence_snippet": "You can add multiple users to the file.",
+    "path": "/prometheus/guides/basic-auth",
+    "query": "Can a Prometheus web.yml file contain multiple users for basic authentication?",
+    "answer": "Yes"
+  },
+  {
+    "evidence_snippet": "cAdvisor exposes Prometheus metrics out of the box.",
+    "path": "/prometheus/guides/cadvisor",
+    "query": "Does cAdvisor expose Prometheus metrics out of the box?",
+    "answer": "cAdvisor exposes Prometheus metrics out of the box."
+  },
+  {
+    "evidence_snippet": "The `cadvisor` service exposes port 8080 (the default port for cAdvisor metrics) and relies on a variety of local volumes",
+    "path": "/prometheus/guides/cadvisor",
+    "query": "What is the default port for cAdvisor metrics?",
+    "answer": "8080"
+  },
+  {
+    "evidence_snippet": "Prometheus can discover targets in a [Docker Swarm][swarm] cluster, as of v2.20.0.",
+    "path": "/prometheus/guides/dockerswarm",
+    "query": "Starting with which Prometheus version is Docker Swarm service discovery supported?",
+    "answer": "v2.20.0"
+  },{
+    "evidence_snippet": "If no escaping scheme is specified in the Accept header, `underscores` escaping SHOULD be used.",
+    "path": "/prometheus/instrumenting/escaping_schemes",
+    "query": "In Prometheus metric escaping schemes, which escaping scheme is applied by default when none is specified in the Accept header?",
+    "answer": "underscores"
+  },
+  {
+    "evidence_snippet": "The [node exporter](https://github.com/prometheus/node_exporter) is a mix of these, with complexity varying by module.",
+    "path": "/prometheus/instrumenting/writing_exporters",
+    "query": "In Prometheus exporter development guide, does the node exporter have the same level of implementation complexity across all its modules?",
+    "answer": "No"
+  },
+  {
+    "evidence_snippet": "A file-based service discovery mechanism, which enables you to list scrape targets in a JSON file (along with metadata about those targets).",
+    "path": "/prometheus/guides/file-sd",
+    "query": "In Prometheus file-based service discovery, what file format is used to define the list of scrape targets and their metadata?",
+    "answer": "JSON"
+  },
+  {
+    "evidence_snippet": "This task shows you how to inject faults to test the resiliency of your application.",
+    "path": "/istio/tasks/traffic-management/fault-injection/index",
+    "query": "In Istio fault injection traffic management task, what is the main objective of injecting faults into the application?",
+    "answer": "test the resiliency of your application"
+  },
+  {
+    "evidence_snippet": "Traffic mirroring, also called shadowing, is a powerful concept that allows feature teams to bring changes to production with as little risk as possible.",
+    "path": "/istio/tasks/traffic-management/mirroring/index",
+    "query": "In Istio traffic mirroring task, is shadowing an alternative name for traffic mirroring?",
+    "answer": "Yes"
+  },
+  {
+    "evidence_snippet": "A locality defines the geographic location of a workload instance within your mesh. The following triplet defines a locality: Region, Zone, Sub-zone",
+    "path": "/istio/tasks/traffic-management/locality-load-balancing/_index",
+    "query": "In Istio locality load balancing, what three components form the triplet that defines a workload locality?",
+    "answer": "Region, Zone, Sub-zone"
+  },
+  {
+    "evidence_snippet": "This example shows how to enable egress traffic for a set of hosts in a common domain, for example .wikipedia.org, instead of configuring each and every host separately.",
+    "path": "/istio/tasks/traffic-management/egress/wildcard-egress-hosts/index",
+    "query": "In Istio wildcard egress hosts configuration, what domain suffix is used as the example for wildcard egress traffic?",
+    "answer": ".wikipedia.org"
+  },
+  {
+    "evidence_snippet": "Only one of the load balancing options should be configured, as they are mutually exclusive. Attempting to configure both may lead to unexpected behavior.",
+    "path": "/istio/tasks/traffic-management/locality-load-balancing/before-you-begin/index",
+    "query": "In Istio locality load balancing prerequisites, can both locality failover and locality weighted distribution be configured simultaneously?",
+    "answer": "No"
+  },
+  {
+    "evidence_snippet": "This task describes how to configure Istio to use the Kubernetes Gateway API Inference Extension. The Gateway API Inference Extension aims to improve and standardize routing to self-hosted AI models in Kubernetes.",
+    "path": "/istio/tasks/traffic-management/ingress/gateway-api-inference-extension/index",
+    "query": "In Istio Gateway API Inference Extension task, what is the primary goal of the Gateway API Inference Extension?",
+    "answer": "improve and standardize routing to self-hosted AI models in Kubernetes"
+  },
+  {
+    "evidence_snippet": "The Gateway API Inference Extension introduces two API types in order to assist with the unique challenges of traffic routing for inference workloads: InferencePool, InferenceObjective",
+    "path": "/istio/tasks/traffic-management/ingress/gateway-api-inference-extension/index",
+    "query": "In Istio Gateway API Inference Extension, what are the two new API types introduced for inference workload traffic routing?",
+    "answer": "InferencePool, InferenceObjective"
+  },
+  {
+    "evidence_snippet": "Install Istio using the minimal profile: istioctl install --set profile=minimal --set values.pilot.env.SUPPORT_GATEWAY_API_INFERENCE_EXTENSION=true --set values.pilot.env.ENABLE_GATEWAY_API_INFERENCE_EXTENSION=true -y",
+    "path": "/istio/tasks/traffic-management/ingress/gateway-api-inference-extension/index",
+    "query": "In Istio Gateway API Inference Extension installation, which Istio profile is used for the setup?",
+    "answer": "minimal"
+  },
+  {
+    "evidence_snippet": "A Gateway provides more extensive customization and flexibility than Ingress, and allows Istio features such as monitoring and route rules to be applied to traffic entering the cluster.",
+    "path": "/istio/tasks/traffic-management/ingress/ingress-control/index",
+    "query": "In Istio ingress control task, does Istio Gateway offer greater customization and flexibility than standard Kubernetes Ingress?",
+    "answer": "Yes"
+  },
+  {
+    "evidence_snippet": "The example target service used for ingress traffic configuration in the ingress-control task is httpbin.",
+    "path": "/istio/tasks/traffic-management/ingress/ingress-control/index",
+    "query": "In Istio ingress control task, what sample service is used as the target for demonstrating ingress traffic configuration?",
+    "answer": "httpbin"
+  },
+  {
+    "evidence_snippet": "All other external requests will be rejected with a 404 response if they do not match configured Gateway and VirtualService routes.",
+    "path": "/istio/tasks/traffic-management/ingress/ingress-control/index",
+    "query": "In Istio ingress control, what HTTP status code is returned for external requests that do not match any configured routes?",
+    "answer": "404"
+  },
+  {
+    "evidence_snippet": "This task shows how to eliminate the additional hop introduced by the Istio Ingress Gateway and let the Envoy sidecar perform TLS termination for requests coming from outside of the service mesh.",
+    "path": "/istio/tasks/traffic-management/ingress/ingress-sidecar-tls-termination/index",
+    "query": "In Istio sidecar TLS termination task, which component performs TLS termination for external traffic instead of the Ingress Gateway?",
+    "answer": "Envoy sidecar"
+  },
+  {
+    "evidence_snippet": "Setup Istio by following the Installation guide, enabling the experimental feature ENABLE_TLS_ON_SIDECAR_INGRESS.",
+    "path": "/istio/tasks/traffic-management/ingress/ingress-sidecar-tls-termination/index",
+    "query": "In Istio sidecar ingress TLS termination, what experimental feature flag must be enabled during Istio installation?",
+    "answer": "ENABLE_TLS_ON_SIDECAR_INGRESS"
+  },
+  {
+    "evidence_snippet": "The ingress-sidecar-tls-termination example uses MUTUAL TLS mode for the sidecar ingress TLS configuration.",
+    "path": "/istio/tasks/traffic-management/ingress/ingress-sidecar-tls-termination/index",
+    "query": "In Istio sidecar TLS termination example, which TLS mode is configured for the sidecar ingress endpoint?",
+    "answer": "MUTUAL"
+  },
+  {
+    "evidence_snippet": "This example describes how to configure an ingress gateway to perform SNI passthrough, instead of TLS termination on incoming requests. The example HTTPS service used for this task is a simple NGINX server.",
+    "path": "/istio/tasks/traffic-management/ingress/ingress-sni-passthrough/index",
+    "query": "In Istio SNI passthrough ingress task, what backend HTTPS server is used as the example service?",
+    "answer": "NGINX"
+  },
+  {
+    "evidence_snippet": "Define a Gateway exposing port 443 with passthrough TLS mode. This instructs the gateway to pass the ingress traffic as is, without terminating TLS.",
+    "path": "/istio/tasks/traffic-management/ingress/ingress-sni-passthrough/index",
+    "query": "In Istio SNI passthrough configuration, what TLS mode must be set on the Gateway to pass through traffic without TLS termination?",
+    "answer": "PASSTHROUGH"
+  },
+  {
+    "evidence_snippet": "Using a Gateway, rather than Ingress, is recommended to make use of the full feature set that Istio offers, such as rich traffic management and security features.",
+    "path": "/istio/tasks/traffic-management/ingress/kubernetes-ingress/index",
+    "query": "In Istio Kubernetes Ingress task, is standard Kubernetes Ingress recommended over Istio Gateway for accessing the full Istio feature set?",
+    "answer": "No"
+  },
+  {
+    "evidence_snippet": "The IngressClass resource identifies the Istio gateway controller to Kubernetes, and the ingressClassName: istio value instructs Kubernetes that the Istio gateway controller should handle the following Ingress.",
+    "path": "/istio/tasks/traffic-management/ingress/kubernetes-ingress/index",
+    "query": "In Istio Kubernetes Ingress configuration, what value is set for ingressClassName to identify the Istio gateway controller?",
+    "answer": "istio"
+  },
+  {
+    "evidence_snippet": "The vLLM simulator image used in the Gateway API Inference Extension example is ghcr.io/llm-d/llm-d-inference-sim:v0.7.1",
+    "path": "/istio/tasks/traffic-management/ingress/gateway-api-inference-extension/index",
+    "query": "In Istio Gateway API Inference Extension example, what is the full image path of the vLLM simulator used for inference workloads?",
+    "answer": "ghcr.io/llm-d/llm-d-inference-sim:v0.7.1"
+  },{
+    "evidence_snippet": "In the ingress-sni-passthrough task, the VirtualService tls match sniHosts value is nginx.example.com",
+    "path": "/istio/tasks/traffic-management/ingress/ingress-sni-passthrough/index",
+    "query": "In Istio SNI passthrough ingress task, what hostname is configured as the sniHosts value in the VirtualService TLS match rule?",
+    "answer": "nginx.example.com"
+  },
+  {
+    "evidence_snippet": "This task shows you how to set up an Istio authorization policy using a new value for the action field, CUSTOM, to delegate the access control to an external authorization system.",
+    "path": "/istio/tasks/security/authorization/authz-custom/index",
+    "query": "In Istio CUSTOM authorization policy task, which action field value delegates access control to an external authorization system?",
+    "answer": "CUSTOM"
+  },
+  {
+    "evidence_snippet": "This task shows you how to set up Istio authorization policy of DENY action to explicitly deny traffic in an Istio mesh. This is different from the ALLOW action because the DENY action has higher priority and will not be bypassed by any ALLOW actions.",
+    "path": "/istio/tasks/security/authorization/authz-deny/index",
+    "query": "In Istio DENY authorization policy task, does the DENY action take higher priority than ALLOW actions in AuthorizationPolicy?",
+    "answer": "Yes"
+  },
+  {
+    "evidence_snippet": "This task shows you how to set up an Istio authorization policy using a new experimental annotation istio.io/dry-run to dry-run the policy without actually enforcing it.",
+    "path": "/istio/tasks/security/authorization/authz-dry-run/index",
+    "query": "In Istio authorization dry-run task, what experimental annotation enables dry-run mode for an Istio authorization policy?",
+    "answer": "istio.io/dry-run"
+  },
+  {
+    "evidence_snippet": "This task requires mutual TLS enabled because the following examples use principal and namespace in the policies.",
+    "path": "/istio/tasks/security/authorization/authz-http/index",
+    "query": "In Istio HTTP authorization policy task, is mutual TLS required for the example policies that use principal and namespace fields?",
+    "answer": "Yes"
+  },
+  {
+    "evidence_snippet": "The sample external authorizer allows requests with the header x-ext-authz: allow.",
+    "path": "/istio/tasks/security/authorization/authz-custom/index",
+    "query": "In Istio CUSTOM authorization task, what value of the x-ext-authz header causes the sample external authorizer to allow the request?",
+    "answer": "allow"
+  },
+  {
+    "evidence_snippet": "The dry-run annotation is currently in experimental stage and has the limitation that it only supports ALLOW and DENY policies.",
+    "path": "/istio/tasks/security/authorization/authz-dry-run/index",
+    "query": "In Istio authorization dry-run task, does the experimental dry-run annotation support CUSTOM action authorization policies?",
+    "answer": "No"
+  },
+  {
+    "evidence_snippet": "The deny-method-get AuthorizationPolicy denies GET requests when the x-token header value is not admin.",
+    "path": "/istio/tasks/security/authorization/authz-deny/index",
+    "query": "In Istio DENY authorization policy example, what x-token header value prevents the GET request from being denied?",
+    "answer": "admin"
+  },
+  {
+    "evidence_snippet": "To check dry-run metrics, search the Prometheus dashboard for the metric envoy_http_inbound_0_0_0_0_80_rbac{authz_dry_run_action=\"deny\",authz_dry_run_result=\"denied\"}.",
+    "path": "/istio/tasks/security/authorization/authz-dry-run/index",
+    "query": "In Istio authorization dry-run task, which monitoring system dashboard is used to inspect dry-run authorization metrics?",
+    "answer": "Prometheus"
+  },
+  {
+    "evidence_snippet": "The allow-nothing AuthorizationPolicy with empty spec {} denies all requests to workloads in its namespace.",
+    "path": "/istio/tasks/security/authorization/authz-http/index",
+    "query": "In Istio HTTP authorization policy, what spec value in an ALLOW action policy results in denying all traffic in the namespace?",
+    "answer": "{}"
+  },
+  {
+    "evidence_snippet": "Currently, the only supported extension provider type is the Envoy ext_authz provider. The external authorizer must implement the corresponding Envoy ext_authz check API.",
+    "path": "/istio/tasks/security/authorization/authz-custom/index",
+    "query": "In Istio CUSTOM authorization task, what is the only currently supported extension provider type for external authorization?",
+    "answer": "Envoy ext_authz"
+  },
+  {
+    "evidence_snippet": "Alternatively, you can also deploy the external authorizer as a separate container in the same pod of the application that needs the external authorization or even deploy it outside of the mesh.",
+    "path": "/istio/tasks/security/authorization/authz-custom/index",
+    "query": "In Istio CUSTOM authorization task, what are the alternative deployment options for an external authorizer besides a standalone pod in the mesh?",
+    "answer": "as a separate container in the same pod or outside of the mesh"
+  },
+  {
+    "evidence_snippet": "When you are confident about the dry-run result, you can disable the dry-run mode so that the policy will start to actually reject requests. This can be achieved by either of the following approaches: Remove the dry-run annotation completely; or Change the value of the dry-run annotation to `false`.",
+    "path": "/istio/tasks/security/authorization/authz-dry-run/index",
+    "query": "In Istio authorization dry-run task, what are the two methods to disable dry-run mode and activate actual policy enforcement?",
+    "answer": "Remove the dry-run annotation completely or change its value to false"
+  }
+]
