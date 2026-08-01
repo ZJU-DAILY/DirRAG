@@ -1,19 +1,3 @@
-"""
-dirrag_scalability_2wikimqa_v3.py
-==================================
-DirRAG 可扩展性实验 v3 —— 去除 Milvus，使用 hnswlib 优化 Section 检索
-设计原则：
-  - Section 检索：HNSW 近似近邻，O(logN)，检索时间不随 corpus 线性增长
-  - Chunk 检索：只对 top-K sections 的 chunk 做 numpy 点积，候选集大小固定，O(1)
-  - Entity 检索：纯内存字符串匹配，O(entity_count) 固定
-  - BM25：纯内存，build 时 O(N)，检索时 section 候选集 O(1)，chunk 候选集 O(1)
-
-预期结果：
-  index_build_time        线性（必须处理每篇文章）
-  section_retrieval_time  次线性 / 近似常数（HNSW 检索）
-  chunk_retrieval_time    次线性（候选集与 N 无关）
-"""
-
 import os
 import re
 import json
