@@ -9,48 +9,46 @@ The repository consists of two core modules:
 ## Repository Structure
 ```
 .
-├── DirRAG
-│   ├── comparativeAndAblation       # Scripts for ablation experiments & baseline comparison
-│   │   ├── ablation_2wikimqa.py
-│   │   ├── ablation_cloud_dir.py
-│   │   ├── ablation_config.py
-│   │   ├── ablation_hotpotqa.py
-│   │   ├── ablation_medi.py
-│   │   ├── ablation_musique.py
-│   │   └── ablation_qasper.py
-│   ├── scalability                  # Scalability test scripts
-│   │   ├── scalability_2wikimqa.py
-│   │   └── scalability_hotpotqa.py
-│   └── utils                        # Basic tool modules
-│       ├── embedding.py
-│       ├── evaluate.py
-│       └── llm.py
-├── README.md
-├── dataset
+├── Baselines
+│   ├── flatrag.py
+│   ├── graphrag.py
+│   ├── hipporag2.py
+│   ├── lightrag.py
+│   └── raptor.py
+├── Dataset
 │   ├── CloudDirWiki
-│   │   ├── CloudDirWikiCorpus.json  # Cloud domain corpus
-│   │   └── CloudDirWikiQA.json      # Cloud domain QA pairs
+│   │   ├── CloudDirWikiCorpus.json
+│   │   └── CloudDirWikiQA.json
 │   └── MediDirWiki
-│       ├── MediDirWikiCorpus.json   # Medical domain corpus
-│       └── MediDirWikiQA.json       # Medical domain QA pairs
+│       ├── MediDirWikiCorpus.json
+│       └── MediDirWikiQA.json
+├── DirRAG
+│   ├── utils
+│   │   ├── embedding.py
+│   │   ├── evaluate.py
+│   │   └── llm.py
+│   ├── dirrag_ablation.py
+│   ├── dirrag_enhance.py
+│   ├── dirrag_framework.py
+│   └── dirrag_scalability.py
+├── README.md
 └── requirements.txt
 ```
-Total: 8 directories, 18 files.
 
 ## Datasets
 We release two hierarchical RAG evaluation benchmarks: **MediDirWiki** (medical domain) and **CloudDirWiki** (cloud-native domain).
 ### File Location
-- `dataset/MediDirWiki/MediDirWikiCorpus.json`: Raw medical domain corpus organized by directory hierarchy
-- `dataset/MediDirWiki/MediDirWikiQA.json`: Corresponding medical question-answer pairs
-- `dataset/CloudDirWiki/CloudDirWikiCorpus.json`: Raw cloud computing domain corpus organized by directory hierarchy
-- `dataset/CloudDirWiki/CloudDirWikiQA.json`: Corresponding cloud computing question-answer pairs
+- `Dataset/MediDirWiki/MediDirWikiCorpus.json`: Raw medical domain corpus organized by directory hierarchy
+- `Dataset/MediDirWiki/MediDirWikiQA.json`: Corresponding medical question-answer pairs
+- `Dataset/CloudDirWiki/CloudDirWikiCorpus.json`: Raw cloud computing domain corpus organized by directory hierarchy
+- `Dataset/CloudDirWiki/CloudDirWikiQA.json`: Corresponding cloud computing question-answer pairs
 
 ### Dataset Statistics
 | Metric                     | MediDirWiki       | CloudDirWiki      |
 |----------------------------|-------------------|-------------------|
 | Domain                     | Medical Wiki      | Cloud‑native Wiki |
 | Task Type                  | Single + Multi‑hop| Single‑hop only   |
-| Query Count                | 327               | 200               |
+| Query Count                | 327               | 202               |
 | Corpus Size (Characters)   | 1,757,591         | 19,417,801        |
 | Average Directory Depth    | 4.46              | 4.72              |
 | Minimum / Maximum Depth    | 3 / 5             | 2 / 7             |
@@ -63,23 +61,40 @@ pip install -r requirements.txt
 
 ## Experimental Usage
 ### 1. Ablation & Comparative Experiments
-Before running the codes, please configure your local LLM model in `llm.py`. You can directly execute ablation experiments for the target datasets as follows:
+Before running the codes, please configure your local LLM model in `DirRAG/utils/llm.py`.
 ```bash
-# Example: ablation experiment on MediDirWiki
-# Available options: full_dirrag, wo_section_routing, wo_iteration, title_only, summary_only, wo_depth_reward, semantic_only
+# Ablation study (MediDirWiki)
+python DirRAG/dirrag_ablation.py
 
-python DirRAG/comparativeAndAblation/ablation_medi.py \
-    --variant full_dirrag \
-    --sample_size 500
+# Enhanced version with supplementary retrieval strategies
+python DirRAG/dirrag_enhance.py
 ```
 
 ### 2. Scalability Experiments
 ```bash
-# Example: scalability experiments on 2wikimqa
-python DirRAG/scalability/scalability_2wikimqa.py
+# Scalability test with DirRAG on CloudDirWiki
+python DirRAG/dirrag_scalability.py
 ```
 
+### 3. Baseline Methods
+```bash
+# FlatRAG (BM25 / Dense)
+python Baselines/flatrag.py
+
+# GraphRAG
+python Baselines/graphrag.py
+
+# LightRAG
+python Baselines/lightrag.py
+
+# HippoRAG2
+python Baselines/hipporag2.py
+
+# RAPTOR
+python Baselines/raptor.py
+```
 
 ## Notes
-- Modify configuration parameters in `ablation_config.py` to adjust experimental settings (embedding models, LLM backends, hyperparameters etc.).
-- `utils/` includes unified wrappers for embedding models, LLMs and evaluation metrics.
+- `DirRAG/utils/` provides unified wrappers for embedding models, LLMs and evaluation metrics.
+- `DirRAG/dirrag_framework.py` contains the core DirRAG system implementation.
+- Baselines use the same LLM and embedding backends for fair comparison.
